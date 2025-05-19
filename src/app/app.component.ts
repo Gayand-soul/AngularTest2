@@ -1,12 +1,23 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, signal } from "@angular/core";
+
+
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  //template: `<p> Hello Gaya, How are you!</p>`,
+  standalone: true,
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'],
+  //styles:[' ']
 })
+
+
+
 export class AppComponent {
-  title = 'Test2';
+  name = signal('My Signal!');
+  imageURL = signal('assets/Sakura.JPG');
+
+  getName(){
+    return this.name();
+  }
 }
